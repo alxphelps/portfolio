@@ -52,14 +52,20 @@ const config: Config = {
       },
       backgroundImage: {
         "grid-fade":
-          "linear-gradient(to right, hsl(var(--border) / 0.35) 1px, transparent 1px), linear-gradient(to bottom, hsl(var(--border) / 0.35) 1px, transparent 1px)",
+          "linear-gradient(to right, hsl(240 4% 16% / 0.4) 1px, transparent 1px), linear-gradient(to bottom, hsl(240 4% 16% / 0.4) 1px, transparent 1px)",
         "hero-glow":
-          "radial-gradient(ellipse 80% 50% at 50% -20%, hsl(199 89% 48% / 0.28), transparent), radial-gradient(ellipse 60% 40% at 100% 0%, hsl(263 70% 50% / 0.12), transparent)",
+          "radial-gradient(ellipse 90% 55% at 15% 20%, hsl(263 70% 35% / 0.45), transparent 55%), radial-gradient(ellipse 70% 50% at 85% 10%, hsl(25 95% 45% / 0.2), transparent 50%), radial-gradient(ellipse 60% 40% at 50% 100%, hsl(280 60% 30% / 0.25), transparent 55%)",
+        "mesh-waves":
+          "radial-gradient(ellipse 100% 80% at 50% 120%, hsl(263 60% 20% / 0.5), transparent 60%), radial-gradient(ellipse 80% 50% at 0% 50%, hsl(263 50% 18% / 0.35), transparent 50%), radial-gradient(ellipse 60% 40% at 100% 30%, hsl(25 80% 25% / 0.2), transparent 50%)",
       },
       keyframes: {
         "fade-up": {
           "0%": { opacity: "0", transform: "translateY(16px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-6px)" },
         },
         shimmer: {
           "100%": { transform: "translateX(100%)" },
@@ -67,6 +73,7 @@ const config: Config = {
       },
       animation: {
         "fade-up": "fade-up 0.7s ease-out forwards",
+        float: "float 6s ease-in-out infinite",
         shimmer: "shimmer 2s infinite",
       },
     },

@@ -1,7 +1,4 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const cases = [
@@ -14,14 +11,14 @@ const cases = [
   },
   {
     eyebrow: "Secrets & identity",
-    title: "Vault and Consul in production",
+    title: "Vault and Consul",
     summary:
       "Deployed and operated HashiCorp stacks for secrets and service discovery—patterns that balanced developer speed with audit and rotation requirements.",
     tags: ["Vault", "Consul"],
   },
   {
     eyebrow: "Delivery & migration",
-    title: "Cloud migration and CI/CD hardening",
+    title: "Cloud migration and CI/CD standardization",
     summary:
       "Led large-scale infrastructure moves into AWS and standardized Terraform and Packer workflows so teams could ship with fewer surprises and clearer ownership.",
     tags: ["Terraform", "Packer", "CI/CD"],
@@ -30,36 +27,33 @@ const cases = [
 
 export function CaseStudies() {
   return (
-    <section id="work" className="scroll-mt-24 px-4 py-20 sm:px-6 lg:px-8">
-      <div className="mx-auto max-w-6xl">
-        <div className="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
-          <div className="max-w-2xl">
-            <p className="text-sm font-medium uppercase tracking-widest text-primary">Career highlights</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Representative outcomes—not a substitute for a full resume conversation.
-            </h2>
-            <p className="mt-3 text-muted-foreground">
-              Roles have included Senior DevOps Engineer at American Express (formerly Kabbage) and Specialist
-              Applications Developer at AT&T. Happy to walk through specifics on a call.
-            </p>
-          </div>
-          <Button variant="outline" asChild>
-            <Link href="#contact" className="gap-1">
-              Discuss your environment
-              <ArrowUpRight className="h-4 w-4" />
-            </Link>
-          </Button>
+    <section id="work" className="section-pad scroll-mt-24">
+      <div className="page-shell">
+        <div className="max-w-3xl xl:max-w-4xl">
+          <p className="text-sm font-medium uppercase tracking-widest text-primary xl:text-base">Experience</p>
+          <h2 className="mt-[clamp(0.75rem,2vh,1.5rem)] text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-tight">
+            Highlights from production platform work.
+          </h2>
+          <p className="mt-[clamp(1rem,2vh,1.5rem)] text-[clamp(1rem,1.2vw,1.125rem)] text-muted-foreground">
+            Senior DevOps Engineer at American Express (formerly Kabbage) and Specialist Applications Developer at
+            AT&T—Kubernetes, AWS, and delivery pipelines at scale.
+          </p>
         </div>
 
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+        <div className="mt-[clamp(2.5rem,6vh,4.5rem)] grid gap-[clamp(1.25rem,3vw,2rem)] lg:grid-cols-3 lg:gap-[clamp(1.5rem,4vw,2.5rem)]">
           {cases.map((c) => (
-            <Card key={c.title} className="flex flex-col border-border/80 bg-gradient-to-b from-card/80 to-card/40">
-              <CardHeader>
+            <Card
+              key={c.title}
+              className="flex flex-col border-white/10 bg-gradient-to-b from-card/90 to-card/30 p-[clamp(0.25rem,1vw,0.5rem)]"
+            >
+              <CardHeader className="space-y-[clamp(0.5rem,1.5vh,1rem)] p-[clamp(1.25rem,2vw,1.75rem)]">
                 <p className="text-xs font-medium uppercase tracking-widest text-muted-foreground">{c.eyebrow}</p>
-                <CardTitle className="mt-2 text-xl leading-snug">{c.title}</CardTitle>
-                <CardDescription className="text-base leading-relaxed">{c.summary}</CardDescription>
+                <CardTitle className="text-[clamp(1.125rem,1.5vw,1.375rem)] leading-snug">{c.title}</CardTitle>
+                <CardDescription className="text-[clamp(0.9375rem,1.1vw,1.0625rem)] leading-relaxed">
+                  {c.summary}
+                </CardDescription>
               </CardHeader>
-              <CardContent className="mt-auto flex flex-wrap gap-2 pt-2">
+              <CardContent className="mt-auto flex flex-wrap gap-2 px-[clamp(1.25rem,2vw,1.75rem)] pb-[clamp(1.25rem,2vw,1.75rem)] pt-0">
                 {c.tags.map((t) => (
                   <Badge key={t} variant="outline" className="font-normal text-muted-foreground">
                     {t}

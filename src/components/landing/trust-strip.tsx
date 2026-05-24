@@ -1,29 +1,17 @@
-const labels = [
-  "Amazon EKS",
-  "Terraform",
-  "Packer",
-  "Vault",
-  "Consul",
-  "GitHub Actions",
-  "Bamboo",
-  "Datadog",
-  "Docker",
-  "Prometheus",
-  "Grafana",
-];
+import { toolsAndPlatforms } from "@/lib/expertise-content";
 
 export function TrustStrip() {
   return (
-    <section className="border-y border-border/60 bg-secondary/20 py-10">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <p className="text-center text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+    <section className="section-pad-sm border-y border-white/5 bg-white/[0.02]">
+      <div className="page-shell">
+        <p className="text-center text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground xl:text-sm">
           Tools &amp; platforms
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-          {labels.map((label) => (
+        <div className="mt-[clamp(1.5rem,4vh,2.5rem)] flex flex-wrap items-center justify-center gap-x-[clamp(1.5rem,4vw,3.5rem)] gap-y-[clamp(1rem,2vh,1.75rem)]">
+          {toolsAndPlatforms.map((label) => (
             <span
               key={label}
-              className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="text-[clamp(0.875rem,1.2vw,1.0625rem)] font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {label}
             </span>

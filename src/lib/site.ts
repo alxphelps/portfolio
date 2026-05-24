@@ -12,6 +12,12 @@ export const site = {
   phoneHref: "tel:+14044525332",
   linkedin: "https://www.linkedin.com/in/alxphelps/",
   github: "https://github.com/alxphelps",
-  /** Drop a square headshot at `public/headshot.png` to replace the initials placeholder */
+  /** Large headshot in the hero */
   profileImagePath: "/headshot.png",
+  /** Small headshot in the site header (top left) */
+  headerImagePath: "/small.png",
+  employment: [
+    { company: "American Express / Kabbage", dates: "2018 — Present" },
+    { company: "AT&T", dates: "2014 — 2018" },
+  ],
 } as const;

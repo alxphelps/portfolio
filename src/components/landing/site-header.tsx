@@ -3,17 +3,13 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
 const nav = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
   { href: "#expertise", label: "Expertise" },
-  { href: "#work", label: "Work" },
-  { href: "#process", label: "Process" },
+  { href: "#what-i-do", label: "What I can do" },
+  { href: "#work", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -21,44 +17,46 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/60 bg-background/75 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="group flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-primary/30 bg-primary/10 text-xs font-bold tracking-tight text-primary">
-            AP
+    <header className="sticky top-0 z-50 border-b border-white/5 bg-background/80 backdrop-blur-xl">
+      <div className="page-shell relative flex h-[clamp(4.25rem,8vh,5.5rem)] items-center">
+        <Link href="/" className="z-20 flex shrink-0 items-center gap-2.5">
+          <span className="relative flex h-9 w-9 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-white/[0.04]">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={site.headerImagePath}
+              alt={site.name}
+              className="h-full w-full object-cover object-top"
+            />
           </span>
-          <span className="flex flex-col leading-tight">
-            <span className="text-sm font-semibold tracking-tight">{site.shortName}</span>
+          <span className="hidden flex-col leading-tight sm:flex">
+            <span className="text-sm font-semibold tracking-tight text-foreground">{site.shortName}</span>
             <span className="text-[11px] text-muted-foreground">{site.title}</span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
-          {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav
+          className="absolute left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 rounded-full p-[1px] md:flex"
+          style={{
+            background: "linear-gradient(120deg, hsl(263 70% 50% / 0.55), hsl(280 70% 50% / 0.35), hsl(25 95% 50% / 0.45))",
+          }}
+          aria-label="Primary"
+        >
+          <div className="flex items-center gap-0.5 rounded-full bg-background/90 px-1.5 py-1.5 backdrop-blur-md">
+            {nav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="rounded-full px-2 py-2 text-[11px] text-muted-foreground transition-colors hover:bg-white/5 hover:text-foreground sm:px-2.5 sm:text-xs lg:px-3.5 lg:text-sm"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </nav>
-
-        <div className="hidden items-center gap-3 md:flex">
-          <Button variant="ghost" size="sm" asChild>
-            <Link href={site.github} target="_blank" rel="noopener noreferrer">
-              GitHub
-            </Link>
-          </Button>
-          <Button size="sm" asChild>
-            <Link href="#contact">Get in touch</Link>
-          </Button>
-        </div>
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-md p-2 text-muted-foreground md:hidden"
+          className="ml-auto inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground md:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((v) => !v)}
         >
@@ -68,7 +66,7 @@ export function SiteHeader() {
 
       <div
         className={cn(
-          "border-t border-border/60 bg-background/95 px-4 py-4 backdrop-blur-xl md:hidden",
+          "border-t border-white/5 bg-background/95 px-4 py-4 backdrop-blur-xl md:hidden",
           open ? "block" : "hidden",
         )}
       >
@@ -77,18 +75,12 @@ export function SiteHeader() {
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-md px-3 py-2 text-sm text-muted-foreground hover:bg-secondary hover:text-foreground"
+              className="rounded-lg px-3 py-2.5 text-sm text-muted-foreground hover:bg-white/5 hover:text-foreground"
               onClick={() => setOpen(false)}
             >
               {item.label}
             </Link>
           ))}
-          <Separator className="my-2 bg-border" />
-          <Button asChild className="w-full">
-            <Link href="#contact" onClick={() => setOpen(false)}>
-              Get in touch
-            </Link>
-          </Button>
         </div>
       </div>
     </header>

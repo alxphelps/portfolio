@@ -4,26 +4,29 @@
 
 @layer base {
   :root {
-    --background: 222 47% 5%;
-    --foreground: 210 20% 98%;
-    --card: 222 40% 8%;
-    --card-foreground: 210 20% 98%;
-    --popover: 222 40% 8%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 199 89% 48%;
-    --primary-foreground: 222 47% 5%;
-    --secondary: 217 19% 16%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 217 19% 18%;
-    --muted-foreground: 215 16% 62%;
-    --accent: 263 70% 58%;
-    --accent-foreground: 210 20% 98%;
+    /* Deep black + purple / orange system */
+    --background: 240 6% 4%;
+    --foreground: 0 0% 98%;
+    --card: 240 5% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 5% 8%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 263 70% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4% 14%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 58%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 240 6% 6%;
     --destructive: 0 72% 51%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 217 19% 18%;
-    --input: 217 19% 18%;
-    --ring: 199 89% 48%;
-    --radius: 0.65rem;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 18%;
+    --input: 240 4% 18%;
+    --ring: 263 70% 55%;
+    --radius: 0.75rem;
+    --gradient-violet: 263 70% 50%;
+    --gradient-orange: 25 95% 55%;
   }
 }
 
@@ -33,5 +36,107 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-gradient-brand {
+    @apply bg-gradient-to-r from-violet-400 via-fuchsia-400 to-orange-400 bg-clip-text text-transparent;
+  }
+  .border-gradient-brand {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
+      linear-gradient(120deg, hsl(var(--gradient-violet)), hsl(280 80% 55%), hsl(var(--gradient-orange))) border-box;
+  }
+}
+
+/* Fluid layout — spacing grows with viewport */
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full;
+    max-width: min(96rem, 94vw);
+    padding-left: clamp(1.25rem, 4vw, 5rem);
+    padding-right: clamp(1.25rem, 4vw, 5rem);
+  }
+
+  .section-pad {
+    padding-top: clamp(3rem, 8vh, 7.5rem);
+    padding-bottom: clamp(3rem, 8vh, 7.5rem);
+  }
+
+  .section-pad-sm {
+    padding-top: clamp(2rem, 5vh, 4.5rem);
+    padding-bottom: clamp(2rem, 5vh, 4.5rem);
+  }
+
+  .gap-fluid {
+    gap: clamp(1.5rem, 4vw, 4rem);
+  }
+
+  .gap-fluid-lg {
+    gap: clamp(2rem, 6vw, 6.5rem);
+  }
+
+  .gap-fluid-xl {
+    gap: clamp(2.5rem, 8vw, 8rem);
+  }
+
+  .space-fluid > * + * {
+    margin-top: clamp(1.25rem, 3vh, 2.75rem);
+  }
+
+  .space-fluid-lg > * + * {
+    margin-top: clamp(1.75rem, 4vh, 3.5rem);
+  }
+
+  /* Profile card — animated gradient rim + hover glow */
+  .profile-glass-card {
+    position: relative;
+    border-radius: 0.75rem;
+    padding: 1px;
+    background: linear-gradient(
+      120deg,
+      hsl(263 70% 48% / 0.55),
+      hsl(280 65% 42% / 0.35),
+      hsl(25 95% 48% / 0.4),
+      hsl(263 70% 48% / 0.55)
+    );
+    background-size: 220% 220%;
+    animation: profile-border-shift 8s ease-in-out infinite;
+    transition:
+      box-shadow 0.4s ease,
+      transform 0.4s ease;
+  }
+
+  .profile-glass-card:hover {
+    box-shadow:
+      0 0 28px hsl(263 70% 55% / 0.38),
+      0 0 56px hsl(280 70% 50% / 0.18),
+      0 0 80px hsl(25 95% 50% / 0.1);
+  }
+
+  .profile-glass-card__inner {
+    border-radius: calc(0.75rem - 1px);
+    border: 1px solid hsl(263 50% 40% / 0.12);
+    background: hsl(263 35% 8% / 0.72);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+}
+
+@keyframes profile-border-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-glass-card {
+    animation: none;
   }
 }
