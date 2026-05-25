@@ -7,7 +7,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: 342989859526.dkr.ecr.us-east-1.amazonaws.com/alxphelps/portfolio
+  ECR_REPOSITORY: alxphelps/portfolio
 
 permissions:
   contents: read
