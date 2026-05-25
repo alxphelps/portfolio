@@ -1,7 +1,7 @@
 export const expertiseIntro = {
-  title: "TEST Eight years building, operating, and improving production infrastructure.",
+  title: "Eight years designing, operating, and improving production infrastructure.",
   summary:
-    "Hands-on ownership of Kubernetes platforms, observability modernization, and full-stack AWS infrastructure for high-impact production systems.",
+    "Hands-on experience with Kubernetes platforms, observability modernization, and Infrastructure as Code powering reliable, scalable production environments.",
 } as const;
 
 export const expertisePillars = [
@@ -33,8 +33,7 @@ export const expertisePillars = [
 
 /** Combined tools & platforms (deduplicated) */
 export const toolsAndPlatforms = [
-  "AWS",
-  "Amazon EKS",
+  "Amazon EKS, EC2, S3, RDS, VPC, IAM, Auto Scaling, AMIs",
   "Kubernetes",
   "Docker",
   "Terraform",
@@ -43,6 +42,10 @@ export const toolsAndPlatforms = [
   "Consul",
   "GitHub Actions",
   "Bamboo",
+  "Artifactory",
+  "Chef",
+  "Linux",
+  "Windows",
   "Datadog",
   "Prometheus",
   "Grafana",
