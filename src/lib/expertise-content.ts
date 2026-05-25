@@ -1,5 +1,5 @@
 export const expertiseIntro = {
-  title: "Eight years building, operating, and improving production infrastructure.",
+  title: "TEST Eight years building, operating, and improving production infrastructure.",
   summary:
     "Hands-on ownership of Kubernetes platforms, observability modernization, and full-stack AWS infrastructure for high-impact production systems.",
 } as const;
