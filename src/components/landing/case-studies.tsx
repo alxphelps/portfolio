@@ -32,12 +32,8 @@ export function CaseStudies() {
         <div className="max-w-3xl xl:max-w-4xl">
           <p className="text-sm font-medium uppercase tracking-widest text-primary xl:text-base">Experience</p>
           <h2 className="mt-[clamp(0.75rem,2vh,1.5rem)] text-[clamp(1.75rem,3.5vw,2.75rem)] font-semibold leading-tight tracking-tight">
-            Highlights from production platform work.
+            Production infrastructure built for scale and reliability.
           </h2>
-          <p className="mt-[clamp(1rem,2vh,1.5rem)] text-[clamp(1rem,1.2vw,1.125rem)] text-muted-foreground">
-            Senior DevOps Engineer at American Express (formerly Kabbage) and Specialist Applications Developer at
-            AT&T—Kubernetes, AWS, and delivery pipelines at scale.
-          </p>
         </div>
 
         <div className="mt-[clamp(2.5rem,6vh,4.5rem)] grid gap-[clamp(1.25rem,3vw,2rem)] lg:grid-cols-3 lg:gap-[clamp(1.5rem,4vw,2.5rem)]">
