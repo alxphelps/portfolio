@@ -8,8 +8,8 @@ export const site = {
   location: "Wilmington, North Carolina",
   email: "alxphelps11@yahoo.com",
   emailHref: "mailto:alxphelps11@yahoo.com",
-  phone: "404-452-5332",
-  phoneHref: "tel:+14044525332",
+  phone: "123-456-7899",
+  phoneHref: "tel:+1234567889",
   linkedin: "https://www.linkedin.com/in/alxphelps/",
   github: "https://github.com/alxphelps",
   /** Large headshot in the hero */
