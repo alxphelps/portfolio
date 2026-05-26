@@ -26,7 +26,7 @@ export const deployFlowSteps = [
     step: "02",
     title: "Build & push (OIDC)",
     detail:
-      "GitHub Actions assumes `portfolio-github-deploy` (OIDC) and pushes the Docker image to ECR `alxphelps/portfolio` with immutable `sha` and `latest` tags.",
+      "GitHub Actions assumes `portfolio-github-deploy` (OIDC) and pushes the Docker image to ECR `alxphelps/portfolio`",
     fileLabel: "Workflow file",
     fileUrl: "https://github.com/alxphelps/portfolio/blob/main/.github/workflows/build-push-deploy-cicd.yml",
   },
